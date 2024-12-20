@@ -1,0 +1,34 @@
+{
+  "menu": [
+    {
+      "docType": "INEVITO-EVITO-SUSBCRIPTION",
+      "createdBy": "Admin",
+      "application": "Seller",
+      "subscription": [],
+      "modifiedBy": "Admin12",
+      "id": "27ae"
+    },
+    {
+      "docType": "INEVITO-EVITO-SUSBCRIPTION",
+      "createdBy": "Admin",
+      "application": "Invoice",
+      "subscription": [],
+      "modifiedBy": "Admin12",
+      "id": "394d"
+    },
+    {
+      "docType": "INEVITO-EVITO-SUSBCRIPTION",
+      "createdBy": "Admin",
+      "application": "Purchase",
+      "subscription": [
+        {
+          "key": "",
+          "type": "",
+          "value": ""
+        }
+      ],
+      "modifiedBy": "Admin12",
+      "id": "24a0"
+    }
+  ]
+}

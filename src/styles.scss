@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+/* Toast positioning */
+.toast {
+    position: fixed !important; /* Fixes the toast position relative to the viewport */
+    top: 20px !important; /* Adjusts the distance from the top */
+    left: 20px !important; /* Adjusts the distance from the left */
+    z-index: 1050 !important; /* Ensures the toast appears above other content */
+}
+
+/* Success toast */
+.toast-success {
+    background-color: #28a745 !important; /* Green background */
+    color: #fff !important; /* White text */
+}
+
+/* Error toast */
+.toast-error {
+    background-color: #dc3545 !important; /* Red background */
+    color: #fff !important; 
+}
+
+/* Info toast */
+.toast-info {
+    background-color: #17a2b8 !important; /* Blue background */
+    color: #fff !important; /* White text */
+}
+
+/* Warning toast */
+.toast-warning {
+    background-color: #ffc107 !important; /* Yellow background */
+    color: #212529 !important; /* Dark text */
+}

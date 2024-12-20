@@ -1,0 +1,89 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Simple Table
+          <div class="header-icons">
+            <span class="simple-plus" (click)="refreshPage()" style="cursor: pointer; font-size: 1.2rem;">
+              <i class="fa fa-refresh"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="applications">Application:</label>
+              <select name="applications" id="applications" class="form-control small-select"
+                (change)="onApplicationChange($event)">
+                <option value="" disabled selected>Select Application</option>
+                <option *ngFor="let data of options" [ngValue]="data.name">{{ data.name }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="animated fadeIn">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  Global Menus 
+                  <span *ngIf="selectedApplication" class="simple-plus" (click)="addNewFormRow()" style="cursor: pointer; font-size: 1.2rem;">
+                    <i class="fa fa-plus"></i>
+                  </span>
+                </div>
+                <div class="card-body global-menus-scroll">
+                  <div class="card-body">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Key</th>
+                          <th>Type</th>
+                          <th>Value</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let row of filteredData; let i = index">
+                          <td>
+                            <input type="text" [(ngModel)]="row.key" placeholder="Enter Key" class="form-control" />
+                          </td>
+                          <td>
+                            <select [(ngModel)]="row.type" class="form-control">
+                              <option value="" disabled>Select Type</option>
+                              <option *ngFor="let type of typeOptions" [value]="type">{{ type }}</option>
+                            </select>
+                          </td>
+                          <td>
+                            <ng-container [ngSwitch]="row.type">
+                              <input *ngSwitchCase="'string'" type="text" [(ngModel)]="row.value" placeholder="Enter Value" class="form-control" />
+                              <input *ngSwitchCase="'array'" type="text" [(ngModel)]="row.value" placeholder="Comma-separated values" class="form-control" />
+                              <select *ngSwitchCase="'boolean'" [(ngModel)]="row.value" class="form-control">
+                                <option value="" disabled>Select Value</option>
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                              </select>
+                            </ng-container>
+                          </td>
+                          <td><span *ngIf="selectedApplication" class="simple-plus">
+                            <i class="fa fa-trash" (click)="onDeleteRow(i)" style="cursor: pointer; font-size: 1.5rem;"></i>
+                          </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="footer" *ngIf="selectedApplication">
+                    <button (click)="saveAll()" class="btn btn-success">Save All</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
